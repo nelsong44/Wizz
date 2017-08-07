@@ -16,6 +16,10 @@ app.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/location.html',
       controller : 'LocationController as location'
     })//end location
+    .when('/edit', {
+      templateUrl: '/views/templates/edit.html',
+      controller : 'EditController as edit'
+    })//end location
     .when('/user', {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController as uc',
