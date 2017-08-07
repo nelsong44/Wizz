@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Solo Project</title>
-        <link rel="stylesheet" href="styles/style.css">
+      <meta charset="utf-8" name="viewport" content="initial-scale=1.0">
+      <!-- angular -->
+      <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
+      <script type="text/javascript" src="vendors/angular-route/angular-route.min.js"></script>
+      <!-- google maps geolocation -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW20u0U1JXWVS_xMpp0V1JuSv-F5ObiyM&callback=initMap"async defer></script>
+      <!-- local files -->
+      <script type="text/javascript" src="scripts/client.js"></script>
+      <script type="text/javascript" src="scripts/controllers/info.controller.js"></script>
+      <script type="text/javascript" src="scripts/controllers/login.controller.js"></script>
+      <script type="text/javascript" src="scripts/controllers/user.controller.js"></script>
+      <script type="text/javascript" src="scripts/services/user.service.js"></script>
+      <script type="text/javascript" src="scripts/controllers/location.controller.js"></script>
+      <script type="text/javascript" src="scripts/controllers/material.controller.js"></script>
+      <link rel="stylesheet" href="styles/style.css">
 
-        <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
-        <script type="text/javascript" src="vendors/angular-route/angular-route.min.js"></script>
-        <script type="text/javascript" src="scripts/client.js"></script>
-        <script type="text/javascript" src="scripts/controllers/info.controller.js"></script>
-        <script type="text/javascript" src="scripts/controllers/login.controller.js"></script>
-        <script type="text/javascript" src="scripts/controllers/user.controller.js"></script>
-        <script type="text/javascript" src="scripts/services/user.service.js"></script>
+      <title>Wizz</title>
     </head>
 
-    <body ng-app="myApp">
-      <header ng-include="'/views/partials/header.html'"></header>
-
-      <main ng-view></main>
-
+    <body ng-app="wizzApp">
+      <div class="container">
+        <!-- <header ng-include="'/views/partials/header.html'"></header> -->
+        <main ng-view>
+          <!-- controller view models will display here -->
+        </main> <!-- end ng view -->
+      </div> <!-- end container -->
     </body>
 </html>

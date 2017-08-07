@@ -1,4 +1,4 @@
-myApp.factory('UserService', function($http, $location){
+app.factory('UserService', function($http, $location){
   console.log('UserService Loaded');
 
   var userObject = {};
