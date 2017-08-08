@@ -5,21 +5,7 @@ var router = express.Router();
 //require the model inside the route it will be used in
 var Restroom = require('../models/restroom.schema.js');
 
-//request to get all the data from db to display on DOM
-// router.get('/', function(req, res) {
-//   Person.find({}, function(err, data) { //find * (same as in mongoose)
-//     if(err) {
-//       console.log('find error: ', err);
-//       res.sendStatus(500);
-//     } else {
-//       res.send(data); //array of objects - each obj a document in the collectin in the db
-//       //res.send(result.rows) - same as
-//       //the Person model is bound to the people collection
-//       console.log(data);
-//     }
-//   });//end find
-// });//end get
-
+//request to get all restrooms from db
 router.get('/', function(req, res) {
   Restroom.find({}, function(err, data) { //find * (same as in mongoose)
     if(err) {
@@ -47,8 +33,8 @@ router.post('/', function(req, res) {
     }//end if
   });//end save
 });//end post
-//
-// //request to delete a Person from the db
+
+//request to delete a Restroom from the db
 // router.delete('/:id', function(req, res) {
 //   console.log('delete person with id: ',  req.params.id);
 //   Person.findByIdAndRemove(
