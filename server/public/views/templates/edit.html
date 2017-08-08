@@ -23,8 +23,8 @@
     <div class="row">
       <div class="col-sm-4">
         <label for="state">State</label>
-        <select id="state" name="state" class="form-control">
-          <option ng-model="edit.input.state" ng-repeat="state in edit.states" value="{{state}}">
+        <select ng-model="edit.input.state" id="state" name="state" class="form-control">
+          <option ng-repeat="state in edit.states" value="{{state}}">
             {{state}}
           </option>
         </select>
@@ -35,25 +35,25 @@
       </div>
       <div class="col-sm-4">
         <label for="rating">Restroom Rating:</label>
-        <select id="rating" name="rating" class="form-control">
-          <option ng-model="edit.input.rating" value="Upvote">Upvote!</option>
-          <option ng-model="edit.input.rating" value="Downvote">Downvote!</option>
+        <select ng-model="edit.input.rating" id="rating" name="rating" class="form-control">
+          <option value="Upvote">Upvote!</option>
+          <option value="Downvote">Downvote!</option>
         </select>
       </div>
     </div><!-- end row -->
     <div class="row" class="form-control">
       <div class="col-sm-12">
-        <label class="checkbox"><input type="checkbox" value="Unisex">Unisex</label>
+        <label class="checkbox"><input ng-click="edit.input.unisex = true" type="checkbox" value="Unisex">Unisex</label>
       </div>
     </div><!-- end row -->
     <div class="row">
       <div class="col-sm-12">
-        <label class="checkbox"><input type="checkbox" value="Handicap Accessible">Handicap Accessible</label>
+        <label class="checkbox"><input ng-click="edit.input.accessible = true" type="checkbox" value="Handicap Accessible">Handicap Accessible</label>
       </div>
     </div><!-- end row -->
     <div class="row">
       <div class="col-sm-12">
-        <label class="checkbox"><input type="checkbox" value="Changing Table">Changing Table</label>
+        <label class="checkbox"><input ng-click="edit.input.changingTable = true" type="checkbox" value="Changing Table">Changing Table</label>
       </div>
     </div><!-- end row -->
     <div class="row">
