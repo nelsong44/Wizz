@@ -3,56 +3,68 @@
 <div class="container">
   <form>
     <div class="row">
-      <div class="col-6">
+      <div class="col-sm-12">
         <label for="venue">Restroom Venue</label>
-        <input type="text" id="venue" name="venue" placeholder="Restroom Venue Name" class="form-control">
+        <input ng-model="edit.input.venue" type="text" id="venue" name="venue" placeholder="Restroom Venue Name" class="form-control">
       </div>
-      <div class="col-6">
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-sm-12">
         <label for="">Street</label>
-        <input type="text" id="street" name="street" placeholder="Street" class="form-control">
+        <input ng-model="edit.input.street" type="text" id="street" name="street" placeholder="Street" class="form-control">
       </div>
     </div><!-- end row -->
     <div class="row">
-      <div class="col-6">
+      <div class="col-sm-12">
         <label for="">City</label>
-        <input type="text" id="city" name="city" placeholder="City" class="form-control">
+        <input ng-model="edit.input.city" type="text" id="city" name="city" placeholder="City" class="form-control">
       </div>
-      <div class="col-6">
-        <label for="">State</label>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-sm-4">
+        <label for="state">State</label>
         <select id="state" name="state" class="form-control">
-          <option value="{{state}}" ng-repeat="state in edit.states">
+          <option ng-model="edit.input.state" ng-repeat="state in edit.states" value="{{state}}">
             {{state}}
-        </option>
+          </option>
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <label for="zipcode">Zipcode</label>
+        <input ng-model="edit.input.zipcode" type="number" id="zipcode" name="zipcode" placeholder="Zipcode" class="form-control">
+      </div>
+      <div class="col-sm-4">
+        <label for="rating">Restroom Rating:</label>
+        <select id="rating" name="rating" class="form-control">
+          <option ng-model="edit.input.rating" value="Upvote">Upvote!</option>
+          <option ng-model="edit.input.rating" value="Downvote">Downvote!</option>
         </select>
       </div>
     </div><!-- end row -->
-    <div class="row">
-      <div class="col-4">
-        <label class="checkbox-inline"><input type="checkbox" value="Unisex" class="form-control">Unisex</label>
-      </div>
-      <div class="col-4">
-        <label class="checkbox-inline"><input type="checkbox" value="Handicap Accessible" class="form-control">Handicap Accessible</label>
-      </div>
-      <div class="col-4">
-        <label class="checkbox-inline"><input type="checkbox" value="Changing Table" class="form-control">Changing Table</label>
+    <div class="row" class="form-control">
+      <div class="col-sm-12">
+        <label class="checkbox"><input type="checkbox" value="Unisex">Unisex</label>
       </div>
     </div><!-- end row -->
     <div class="row">
-      <div class="col-6">
-        <label for="vote">Country</label>
-        <select id="vote" name="vote" class="form-control">
-          <option value="Rating">Rating</option>
-          <option value="Upvote">Upvote!</option>
-          <option value="Downvote">Downvote!</option>
-        </select>
+      <div class="col-sm-12">
+        <label class="checkbox"><input type="checkbox" value="Handicap Accessible">Handicap Accessible</label>
       </div>
-      <div class="col-6">
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-sm-12">
+        <label class="checkbox"><input type="checkbox" value="Changing Table">Changing Table</label>
+      </div>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-sm-12">
         <label for="comment">Comment</label>
-        <textarea id="comment" name="comment" placeholder="Share your experience with others!" style="height:200px" class="form-control"></textarea>
+        <textarea ng-model="edit.input.comments.comment"id="comment" name="comment" placeholder="Share your experience with others!" style="height:200px" class="form-control"></textarea>
       </div>
     </div><!-- end row -->
-
-    <input type="submit" value="Submit">
+    <div class="row">
+    <input type="submit" value="Submit" id="submit" ng-click="edit.submitUserInput()">
+    </div><!-- end row -->
   </form>
 </div>
 
