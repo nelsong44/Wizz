@@ -1,5 +1,77 @@
 <!-- view model for edit page -->
 
-<div id="editContainer" layout="column">
-  <p>Edit Page</p>
-</div><!-- end editContainer -->
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="col-6">
+        <label for="venue">Restroom Venue</label>
+        <input type="text" id="venue" name="venue" placeholder="Restroom Venue Name" class="form-control">
+      </div>
+      <div class="col-6">
+        <label for="">Street</label>
+        <input type="text" id="street" name="street" placeholder="Street" class="form-control">
+      </div>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-6">
+        <label for="">City</label>
+        <input type="text" id="city" name="city" placeholder="City" class="form-control">
+      </div>
+      <div class="col-6">
+        <label for="">State</label>
+        <select id="state" name="state" class="form-control">
+          <option value="{{state}}" ng-repeat="state in edit.states">
+            {{state}}
+        </option>
+        </select>
+      </div>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-4">
+        <label class="checkbox-inline"><input type="checkbox" value="Unisex" class="form-control">Unisex</label>
+      </div>
+      <div class="col-4">
+        <label class="checkbox-inline"><input type="checkbox" value="Handicap Accessible" class="form-control">Handicap Accessible</label>
+      </div>
+      <div class="col-4">
+        <label class="checkbox-inline"><input type="checkbox" value="Changing Table" class="form-control">Changing Table</label>
+      </div>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-6">
+        <label for="vote">Country</label>
+        <select id="vote" name="vote" class="form-control">
+          <option value="Rating">Rating</option>
+          <option value="Upvote">Upvote!</option>
+          <option value="Downvote">Downvote!</option>
+        </select>
+      </div>
+      <div class="col-6">
+        <label for="comment">Comment</label>
+        <textarea id="comment" name="comment" placeholder="Share your experience with others!" style="height:200px" class="form-control"></textarea>
+      </div>
+    </div><!-- end row -->
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<!-- {
+    "id": 3578,
+    "name": "University of MN - Duluth",
+    "street": "1216 Ordean Court",
+    "city": "Duluth",
+    "state": "MN",
+    "accessible": false,
+    "unisex": true,
+    "directions": "SpHC 17 and 18 (Basement, right next to the pool)",
+    "comment": "There are 2 \\\"family changing rooms\\\" in the basement of SpHC. Unfortunately there is no toilet but they are good for a gender neutral changing area. They don't lock but are used infrequently.",
+    "latitude": 46.8188303,
+    "longitude": -92.0830786,
+    "created_at": "2014-02-02T20:54:12.855Z",
+    "updated_at": "2014-02-02T20:54:12.855Z",
+    "downvote": 1,
+    "upvote": 0,
+    "country": "US",
+    "changing_table": false
+  } -->
