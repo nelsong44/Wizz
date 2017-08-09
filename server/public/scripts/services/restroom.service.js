@@ -25,7 +25,7 @@ app.factory('RestroomService', function($http, $location){
 
      //function to get all restrooms from db
      function getRestrooms() {
-       console.log('getRestrooms called');
+       console.log('getRestrooms called from RS');
        return $http.get('/restroom')
        .then(function(response) {
          console.log(response.data);

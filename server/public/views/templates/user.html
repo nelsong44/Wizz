@@ -2,7 +2,7 @@
 
 <div class="container">
   <div ng-include="'views/partials/nav.html'"></div>
-  <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
+  <h1 id="welcome" class="lead">Welcome, {{account.userObject.userName}}!</h1>
 
   <table class="userRestrooms">
 	<caption>Your Restrooms!</caption>
@@ -18,18 +18,26 @@
 	</tr>
 	</thead>
 	<tbody>
-	<tr ng-repeat="restroom in account.allRestrooms">
+	<tr ng-repeat="restroom in account.allRestroomsDb">
 		<td>{{restroom.venue}}</td>
-		<td>{{restroom.street + ' ' + restroom.city + ' ' + restroom.state + ' ' + restroom.zipcode}}</td>
+		<!-- <td>{{restroom.street + ' ' + restroom.city + ' ' + restroom.state + ' ' + restroom.zipcode}}</td> -->
     <td>{{restroom.rating}}</td>
 		<td>{{restroom.comment}}</td>
 		<td>{{restroom.unisex}}</td>
     <td>{{restroom.accessible}}</td>
     <td>{{restroom.changingTable}}</td>
 	</tr>
+  <tr ng-repeat="restroom in account.allRestroomsApi">
+    <td>{{restroom.name}}</td>
+    <td>{{restroom.upvote}}</td>
+		<td>{{restroom.comment}}</td>
+		<td>{{restroom.unisex}}</td>
+    <td>{{restroom.accessible}}</td>
+    <td>{{restroom.changing_table}}</td>
+  </tr>
 	</tbody>
 </table>
 
-<button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
+<button class="btn btn-default" ng-click="account.userService.logout()">Log Out</button>
 
 </div><!-- end container -->
