@@ -7,7 +7,7 @@ var uniqueValidator = require('mongoose-unique-validator');
 var restroomSchema = new Schema({
   //set data type of each specific property - for data integrity
   venue: {type: String, unique: true, uniqueCaseInsensitive: true, required: true},
-  street: {type: String, required: true},
+  street: {type: String, unique: true, uniqueCaseInsensitive: true, required: true},
   city: {type: String, required: true},
   state: {type: String, required: true},
   zipcode: {type: Number, required: true},

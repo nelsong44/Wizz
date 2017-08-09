@@ -7,8 +7,6 @@ app.controller('RestroomController', function($http) {
 
   //assigns
   restroom.newRestroom = {};
-  restroom.newRestroom.latitude = 0;
-  restroom.newRestroom.longitude = 0;
   restroom.features = ['Unisex', 'Handicap Accessible', 'Changing Station'];
   restroom.states = ['AK','AL','AR','AZ','CA','CO','CT','DC','DE','FL','GA','GU','HI','IA','ID', 'IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MO','MS','MT','NC','ND','NE','NH','NJ','NM','NV','NY', 'OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VA','VI','VT','WA','WI','WV','WY'];
 
@@ -18,10 +16,10 @@ app.controller('RestroomController', function($http) {
  //CRUD ROUTES --------->
     //request to add a new Restroom to the db
     restroom.addRestroom = function() {
-      //adjust restroom rating based on user input to store in db
-      adjustRating();
       //get coordinates of restroom location based on user-inputted address to store in db
       getLatLong();
+      //adjust restroom rating based on user input to store in db
+      adjustRating();
       console.log('addRestroom called');
       $http.post('/restroom', restroom.newRestroom) //Restroom obj
       .then(function(response) {
@@ -49,7 +47,8 @@ app.controller('RestroomController', function($http) {
       }// end if
       console.log('current rating: ', restroom.newRestroom.rating);
     }//end adjustRating
-
+    restroom.newRestroom.latitude;
+    restroom.newRestroom.longitude;
     //function to get coordinates of each address submitted via form using Google Maps
     function getLatLong() {
       console.log('getLatLong called');
