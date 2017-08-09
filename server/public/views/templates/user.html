@@ -1,6 +1,31 @@
-<div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
+<!-- welcome page for logged-in user -->
 
-    <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
-    <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
-</div>
+<div class="container">
+  <div ng-include="'views/partials/nav.html'"></div>
+  <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
+
+  <table class="userRestrooms">
+	<caption>Your Restrooms!</caption>
+	<thead>
+	<tr>
+		<th>Venue</th>
+		<th>Address</th>
+		<th>Rating</th>
+		<th>Unisex</th>
+    <th>Handicap Accessible</th>
+    <th>Changing Table</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	</tbody>
+</table>
+
+<button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
+
+</div><!-- end container -->
