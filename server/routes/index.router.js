@@ -5,12 +5,12 @@ var passport = require('passport');
 var path = require('path');
 
 // Handles login form POST from index.html
-// router.post('/',
-//     passport.authenticate('local', { // local strategy - userStrategy.js
-//         // request stays within node/express and is routed as a new request
-//         successRedirect: '/user'   // goes to routes/user.js
-//     })
-// );//end post
+router.post('/',
+    passport.authenticate('local', { // local strategy - userStrategy.js
+        // request stays within node/express and is routed as a new request
+        successRedirect: '/user'   // goes to routes/user.js
+    })
+);//end post
 
 // Handle index file separately
 router.get('/', function(req, res) {
