@@ -6,7 +6,8 @@ app.config(function($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('');
   $routeProvider
     .when('/', {
-      templateUrl: '/views/templates/home.html'
+      templateUrl: '/views/templates/home.html',
+      controller: 'LoginController as lc'
     })//end home
     .when('/register', {
       templateUrl: '/views/templates/register.html',
@@ -18,7 +19,13 @@ app.config(function($routeProvider, $locationProvider) {
     })//end location
     .when('/restroom', {
       templateUrl: '/views/templates/restroom.html',
-      controller : 'RestroomController as restroom'
+      controller : 'RestroomController as restroom',
+      resolve: {
+        //require authentication to access
+        getuser : function(UserService){
+          return UserService.getuser();
+        }//end getuser
+      }//end resolve
     })//end location
     .when('/user', {
       templateUrl: '/views/templates/user.html',
