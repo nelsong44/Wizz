@@ -23,7 +23,7 @@ app.config(function($routeProvider, $locationProvider) {
     })//end location
     .when('/user', {
       templateUrl: '/views/templates/user.html',
-      controller: 'UserController as uc',
+      controller: 'UserController as account',
       resolve: {
         //require authentication to access
         getuser : function(UserService){

@@ -1,15 +1,16 @@
 app.controller('UserController', function(UserService, RestroomService) {
   console.log('UserController created');
-  var vm = this;
-  vm.userService = UserService;
-  vm.userObject = UserService.userObject;
+  var account = this;
+  account.userService = UserService;
+  account.userObject = UserService.userObject;
 
-  vm.restroomService = RestroomService;
-  vm.restroomObject = RestroomService.restroomObject;
+  account.restroomService = RestroomService;
+  account.restroomObject = RestroomService.restroomObject;
+  //get all restrooms from db through the RestroomService logic
   RestroomService.getRestrooms()
   .then(function(response) {
-    console.log('Added restroom ', response);
-    //update after adding a new Restroom
+    console.log('all restrooms from db', response);
+    account.allRestrooms = response;
   });//end then
 
 });
