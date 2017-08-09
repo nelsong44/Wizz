@@ -20,12 +20,6 @@ app.config(function($routeProvider, $locationProvider) {
     .when('/restroom', {
       templateUrl: '/views/templates/restroom.html',
       controller : 'RestroomController as restroom',
-      resolve: {
-        //require authentication to access
-        getuser : function(UserService){
-          return UserService.getuser();
-        }//end getuser
-      }//end resolve
     })//end location
     .when('/user', {
       templateUrl: '/views/templates/user.html',
