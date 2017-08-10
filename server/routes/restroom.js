@@ -36,7 +36,7 @@ router.post('/', function(req, res) {
 
 //request to delete a Restroom from the db
 router.delete('/:id', function(req, res) {
-  console.log('delete person with id: ',  req.params.id);
+  console.log('deleted restroom with id: ',  req.params.id);
   Restroom.findByIdAndRemove(
     { _id: req.params.id },
     function(err, data) {
@@ -44,7 +44,7 @@ router.delete('/:id', function(req, res) {
         console.log('save error: ', err);
         res.sendStatus(500);
       } else {
-        res.sendStatus(201);
+        res.sendStatus(200);
       }//end if
     }//end function
   );//end findByIdAndRemove

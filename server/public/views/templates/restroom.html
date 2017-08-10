@@ -1,5 +1,7 @@
 <!-- view model for edit page -->
 
+<div ng-include="'views/partials/nav.html'"></div>
+
 <div class="container">
   <form>
     <div class="row">
@@ -63,7 +65,7 @@
       </div>
     </div><!-- end row -->
     <div class="row">
-    <input type="submit" value="Submit" id="submit" ng-click="restroom.addRestroom()">
+    <input type="submit" value="Submit" id="submit" ng-click="restroom.addRestroom(restroom.newRestroom)">
     </div><!-- end row -->
   </form>
 </div>
