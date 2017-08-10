@@ -35,20 +35,20 @@ router.post('/', function(req, res) {
 });//end post
 
 //request to delete a Restroom from the db
-// router.delete('/:id', function(req, res) {
-//   console.log('delete person with id: ',  req.params.id);
-//   Person.findByIdAndRemove(
-//     { _id: req.params.id },
-//     function(err, data) {
-//       if(err) {
-//         console.log('save error: ', err);
-//         res.sendStatus(500);
-//       } else {
-//         res.sendStatus(201);
-//       }//end if
-//     }//end function
-//   );//end findByIdAndRemove
-// });//end delete
+router.delete('/:id', function(req, res) {
+  console.log('delete person with id: ',  req.params.id);
+  Restroom.findByIdAndRemove(
+    { _id: req.params.id },
+    function(err, data) {
+      if(err) {
+        console.log('save error: ', err);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(201);
+      }//end if
+    }//end function
+  );//end findByIdAndRemove
+});//end delete
 
 //export the router
 module.exports = router;

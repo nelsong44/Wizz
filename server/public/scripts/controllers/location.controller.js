@@ -8,4 +8,5 @@ app.controller('LocationController', function(LocationService) {
     location.locationService = LocationService;
     location.locationObject = LocationService.locationObject;
     location.locationService.getCurrentLocation();
+
 });//end LocationController

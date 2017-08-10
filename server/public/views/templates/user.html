@@ -1,6 +1,46 @@
-<div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
+<!-- welcome page for logged-in user -->
 
-    <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
-    <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
-</div>
+<div class="container">
+  <div ng-include="'views/partials/nav.html'"></div>
+  <h1 id="welcome" class="lead">Welcome, {{account.userObject.userName}}!</h1>
+  <table class="userRestrooms">
+	<caption>Your Restrooms!</caption>
+	<thead>
+	<tr>
+		<th>Venue</th>
+		<th>Address</th>
+    <th>Rating</th>
+		<th>Comments</th>
+		<th>Unisex</th>
+    <th>Handicap Accessible</th>
+    <th>Changing Table</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="restroom in account.allRestroomsDb">
+		<td>{{restroom.venue}}</td>
+		<td>{{restroom.street + ' ' + restroom.city + ' ' + restroom.state + ' ' + restroom.zipcode}}</td>
+    <td>{{restroom.rating}}</td>
+		<td>{{restroom.comment}}</td>
+		<td>{{restroom.unisex}}</td>
+    <td>{{restroom.accessible}}</td>
+    <td>{{restroom.changingTable}}</td>
+    <td><button>Edit</button></td>
+    <td><button ng-click="account.deleteRestroom(restroom._id)" class="deleteButton">Delete</button></td>
+	</tr>
+  <!-- <tr ng-repeat="restroom in account.allRestroomsApi">
+    <td>{{restroom.name}}</td>
+    <td>{{restroom.upvote}}</td>
+		<td>{{restroom.comment}}</td>
+		<td>{{restroom.unisex}}</td>
+    <td>{{restroom.accessible}}</td>
+    <td>{{restroom.changing_table}}</td>
+    <td><button>Edit</button></td>
+    <td><button class="deleteButton">Delete</button></td>
+  </tr> -->
+	</tbody>
+</table>
+
+<button class="btn btn-default" ng-click="account.userService.logout()">Log Out</button>
+
+</div><!-- end container -->

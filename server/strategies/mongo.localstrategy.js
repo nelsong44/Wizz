@@ -27,6 +27,7 @@ passport.use('local', new localStrategy({
   passReqToCallback: true,
   usernameField: 'username'
   }, function(req, username, password, done) {
+    console.log('userStrategy.js');
     // mongoose stuff
     User.findOne({username: username}, function(err, user) {
       if(err) {

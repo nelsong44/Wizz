@@ -3,12 +3,8 @@ var router = express.Router();
 var Users = require('../models/user.js');
 var path = require('path');
 
-
-//<<<<<<< HEAD
 //Handles request for HTML file
-//=======
 // Handles request for HTML file
-//>>>>>>> feature-add-functionality
 router.get('/', function(req, res, next) {
   console.log('get /register route');
   res.sendFile(path.resolve(__dirname, '../public/views/templates/register.html'));

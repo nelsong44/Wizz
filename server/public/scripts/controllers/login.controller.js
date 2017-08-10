@@ -40,8 +40,8 @@ app.controller('LoginController', function($http, $location, UserService) {
           $location.path('/login');
         }).catch(function(response) {
           console.log('LoginController -- registerUser -- error');
-          vm.message = "Please try again."
+          vm.message = "Please try again.";
         });
       }
-    }
+    };
 });

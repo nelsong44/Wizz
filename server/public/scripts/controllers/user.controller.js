@@ -1,6 +1,30 @@
-app.controller('UserController', function(UserService) {
+app.controller('UserController', function(UserService, RestroomService, LocationService) {
   console.log('UserController created');
-  var vm = this;
-  vm.userService = UserService;
-  vm.userObject = UserService.userObject;
-});
+
+  var account = this;
+  //link to UserService
+  account.userService = UserService;
+  account.userObject = UserService.userObject;
+
+  //link to RestroomService
+  account.restroomService = RestroomService;
+  account.restroomObject = RestroomService.restroomObject;
+
+  //get all restrooms from db via RestroomService
+  RestroomService.getRestrooms()
+  .then(function(response) {
+    console.log('all restrooms from db', response);
+    account.allRestroomsDb = response;
+  });//end then
+
+  //get all restrooms from API via LocationService
+  // LocationService.getRestrooms()
+  // .then(function(response) {
+  //   console.log('all restrooms from API', response);
+  //   account.allRestroomsApi = response;
+  // });//end then
+
+  //delete restroom on button click via RestroomService
+  account.deleteRestroom = RestroomService.deleteRestroom;
+
+});//end UserController
