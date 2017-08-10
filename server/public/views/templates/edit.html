@@ -1,0 +1,67 @@
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="col-sm-12">
+        <label for="venue">Restroom Venue</label>
+        <input ng-model="restroom.newRestroom.venue" type="text" id="venue" name="venue" placeholder="Restroom Venue Name" class="form-control">
+      </div>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-sm-12">
+        <label for="">Street</label>
+        <input ng-model="restroom.newRestroom.street" type="text" id="street" name="street" placeholder="Street" class="form-control">
+      </div>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-sm-12">
+        <label for="">City</label>
+        <input ng-model="restroom.newRestroom.city" type="text" id="city" name="city" placeholder="City" class="form-control">
+      </div>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-sm-4">
+        <label for="state">State</label>
+        <select ng-model="restroom.newRestroom.state" id="state" name="state" class="form-control">
+          <option ng-repeat="state in restroom.states" value="{{state}}">
+            {{state}}
+          </option>
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <label for="zipcode">Zipcode</label>
+        <input ng-model="restroom.newRestroom.zipcode" type="number" id="zipcode" name="zipcode" placeholder="Zipcode" class="form-control">
+      </div>
+      <div class="col-sm-4">
+        <label for="rating">Restroom Rating:</label>
+        <select ng-model="restroom.newRestroom.rating" id="rating" name="rating" class="form-control">
+          <option value="1">Upvote!</option>
+          <option value="-1">Downvote!</option>
+        </select>
+      </div>
+    </div><!-- end row -->
+    <div class="row" class="form-control">
+      <div class="col-sm-12">
+        <label class="checkbox"><input ng-click="restroom.newRestroom.unisex = true" type="checkbox" value="Unisex">Unisex</label>
+      </div>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-sm-12">
+        <label class="checkbox"><input ng-click="restroom.newRestroom.accessible = true" type="checkbox" value="Handicap Accessible">Handicap Accessible</label>
+      </div>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-sm-12">
+        <label class="checkbox"><input ng-click="restroom.newRestroom.changingTable = true" type="checkbox" value="Changing Table">Changing Table</label>
+      </div>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-sm-12">
+        <label for="comment">Comment</label>
+        <textarea ng-model="restroom.newRestroom.comment"id="comment" name="comment" placeholder="Share your experience with others!" style="height:200px" class="form-control"></textarea>
+      </div>
+    </div><!-- end row -->
+    <div class="row">
+    <input type="submit" value="Update" id="submit" ng-click="restroom.addRestroom(restroom.newRestroom)">
+    </div><!-- end row -->
+  </form>
+</div>

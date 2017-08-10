@@ -34,6 +34,6 @@ app.controller('UserController', function(UserService, RestroomService, Location
     });
   };
 
-  account.getRestrooms();
+  account.getRestrooms(); 
 
 });//end UserController
