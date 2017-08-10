@@ -19,13 +19,12 @@
 	<tbody>
 	<tr ng-repeat="restroom in account.allRestroomsDb">
 		<td>{{restroom.venue}}</td>
-		<!-- <td>{{restroom.street + ' ' + restroom.city + ' ' + restroom.state + ' ' + restroom.zipcode}}</td> -->
+		<td>{{restroom.street + ' ' + restroom.city + ' ' + restroom.state + ' ' + restroom.zipcode}}</td>
     <td>{{restroom.rating}}</td>
 		<td>{{restroom.comment}}</td>
 		<td>{{restroom.unisex}}</td>
     <td>{{restroom.accessible}}</td>
     <td>{{restroom.changingTable}}</td>
-    <td>{{restroom._id}}</td>
     <td><button>Edit</button></td>
     <td><button ng-click="account.deleteRestroom(restroom._id)" class="deleteButton">Delete</button></td>
 	</tr>
