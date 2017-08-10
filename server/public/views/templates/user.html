@@ -3,7 +3,6 @@
 <div class="container">
   <div ng-include="'views/partials/nav.html'"></div>
   <h1 id="welcome" class="lead">Welcome, {{account.userObject.userName}}!</h1>
-
   <table class="userRestrooms">
 	<caption>Your Restrooms!</caption>
 	<thead>
@@ -26,15 +25,20 @@
 		<td>{{restroom.unisex}}</td>
     <td>{{restroom.accessible}}</td>
     <td>{{restroom.changingTable}}</td>
+    <td>{{restroom._id}}</td>
+    <td><button>Edit</button></td>
+    <td><button ng-click="account.deleteRestroom(restroom._id)" class="deleteButton">Delete</button></td>
 	</tr>
-  <tr ng-repeat="restroom in account.allRestroomsApi">
+  <!-- <tr ng-repeat="restroom in account.allRestroomsApi">
     <td>{{restroom.name}}</td>
     <td>{{restroom.upvote}}</td>
 		<td>{{restroom.comment}}</td>
 		<td>{{restroom.unisex}}</td>
     <td>{{restroom.accessible}}</td>
     <td>{{restroom.changing_table}}</td>
-  </tr>
+    <td><button>Edit</button></td>
+    <td><button class="deleteButton">Delete</button></td>
+  </tr> -->
 	</tbody>
 </table>
 

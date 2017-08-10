@@ -34,29 +34,29 @@ app.factory('LocationService', function($http, $location){
   }//end initMap
 
   //function to get all MN restrooms using API
-  function getRestrooms() {
-    console.log('getRestrooms called from LS');
-    //http://www.refugerestrooms.org:80/api/v1/restrooms.json?page=1&per_page=99&offset=0&ada=false&unisex=false - first 99 from API
-    //http://www.refugerestrooms.org:80/api/v1/restrooms/search.json?query=MN -all MN restrooms from API
-    return $http.get('http://www.refugerestrooms.org:80/api/v1/restrooms/search.json?query=MN')
-    .then(function(response) { //array of restroom objects from API
-      console.log('all restrooms: ', response.data);
-      //assign restroom API data to var
-      var restrooms = response.data;
-      //loop through restrooms to access location coordinates to mark on map
-      for (var i = 0; i < restrooms.length; i++) {
-        //set latitude and longitude of restroom location to variables
-        var lat = restrooms[i].latitude;
-        var lng = restrooms[i].longitude;
-        var latLng = new google.maps.LatLng(lat, lng);
-        var marker = new google.maps.Marker({
-          position: latLng,
-          map: map
-      });//end marker
-    }//end for loop
-    return response.data;
-  });//end get
-}//end getRestrooms
+//   function getRestrooms() {
+//     console.log('getRestrooms called from LS');
+//     //http://www.refugerestrooms.org:80/api/v1/restrooms.json?page=1&per_page=99&offset=0&ada=false&unisex=false - first 99 from API
+//     //http://www.refugerestrooms.org:80/api/v1/restrooms/search.json?query=MN -all MN restrooms from API
+//     return $http.get('http://www.refugerestrooms.org:80/api/v1/restrooms/search.json?query=MN')
+//     .then(function(response) { //array of restroom objects from API
+//       console.log('all restrooms: ', response.data);
+//       //assign restroom API data to var
+//       var restrooms = response.data;
+//       //loop through restrooms to access location coordinates to mark on map
+//       for (var i = 0; i < restrooms.length; i++) {
+//         //set latitude and longitude of restroom location to variables
+//         var lat = restrooms[i].latitude;
+//         var lng = restrooms[i].longitude;
+//         var latLng = new google.maps.LatLng(lat, lng);
+//         var marker = new google.maps.Marker({
+//           position: latLng,
+//           map: map
+//       });//end marker
+//     }//end for loop
+//     return response.data;
+//   });//end get
+// }//end getRestrooms
 
         //event listener for restroom markers
       //   google.maps.event.addListener(marker, "click", function(event) {
@@ -76,6 +76,6 @@ app.factory('LocationService', function($http, $location){
     locationObject : locationObject,
     getCurrentLocation : getCurrentLocation,
     initMap : initMap,
-    getRestrooms : getRestrooms
+    // getRestrooms : getRestrooms
   };//end return object
 });//end LocationService

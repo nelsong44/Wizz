@@ -33,6 +33,17 @@ app.factory('RestroomService', function($http, $location){
        });//end get
      }//end getRestrooms
 
+     function deleteRestroom(id) {
+       console.log(id);
+       console.log('deleteRestroom called from RS');
+       $http.delete('/restroom/' + id)
+       .then(function(response){
+        console.log('deleted', response);
+        getRestrooms();
+        //getRestrooms(username);
+      });//end then
+      }//end deleteRestroom
+
   //end CRUD ROUTES --------->
 
      //function to adjust restroom rating based on user rating
@@ -67,6 +78,7 @@ app.factory('RestroomService', function($http, $location){
   return {
     restroomObject : restroomObject,
     addRestroom : addRestroom,
-    getRestrooms : getRestrooms
+    getRestrooms : getRestrooms,
+    deleteRestroom : deleteRestroom
   };//end return object
   });//end LocationService

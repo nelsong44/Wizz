@@ -18,10 +18,13 @@ app.controller('UserController', function(UserService, RestroomService, Location
   });//end then
 
   //get all restrooms from API via LocationService
-  LocationService.getRestrooms()
-  .then(function(response) {
-    console.log('all restrooms from API', response);
-    account.allRestroomsApi = response;
-  });//end then
+  // LocationService.getRestrooms()
+  // .then(function(response) {
+  //   console.log('all restrooms from API', response);
+  //   account.allRestroomsApi = response;
+  // });//end then
+
+  //delete restroom on button click via RestroomService
+  account.deleteRestroom = RestroomService.deleteRestroom;
 
 });//end UserController
