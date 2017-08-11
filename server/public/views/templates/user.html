@@ -25,7 +25,7 @@
 		<td>{{restroom.unisex}}</td>
     <td>{{restroom.accessible}}</td>
     <td>{{restroom.changingTable}}</td>
-    <td><button ng-click="account.editRestroom(restroom._id)" class="deleteButton">Edit</button></td>
+    <td><button ng-click="account.editRestroom(restroom)" class="editButton"><a href="#edit">Edit</a></button></td>
     <td><button ng-click="account.deleteRestroom(restroom._id)" class="deleteButton">Delete</button></td>
   </tr>
   <!-- <tr ng-repeat="restroom in account.allRestroomsApi">

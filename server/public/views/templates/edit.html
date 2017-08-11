@@ -1,9 +1,15 @@
-<div class="container">
+<!-- edit restroom view model -->
+
+<div ng-include="'views/partials/nav.html'"></div>
+
+<!-- ng-repeat="restroom in account.restroom" -->
+
+<div ng-controller="RestroomController as restroom" class="container">
   <form>
     <div class="row">
       <div class="col-sm-12">
         <label for="venue">Restroom Venue</label>
-        <input ng-model="restroom.newRestroom.venue" type="text" id="venue" name="venue" placeholder="Restroom Venue Name" class="form-control">
+        <input ng-model="restroom.restroomToEdit.venue" type="text" id="venue" name="venue" class="form-control">
       </div>
     </div><!-- end row -->
     <div class="row">
@@ -61,7 +67,7 @@
       </div>
     </div><!-- end row -->
     <div class="row">
-    <input type="submit" value="Update" id="submit" ng-click="restroom.addRestroom(restroom.newRestroom)">
+    <input type="submit" value="Update" id="submit" ng-click="restroom.editRestroom(restroom.newRestroom)">
     </div><!-- end row -->
   </form>
 </div>

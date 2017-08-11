@@ -19,8 +19,17 @@ app.config(function($routeProvider, $locationProvider) {
     })//end location
     .when('/restroom', {
       templateUrl: '/views/templates/restroom.html',
-      controller : 'RestroomController as restroom',
+      controller : 'RestroomController as restroom'
     })//end location
+    .when('/edit', {
+      templateUrl: '/views/templates/edit.html',
+      resolve: {
+        //require authentication to access
+        getuser : function(UserService){
+          return UserService.getuser();
+        }//end getuser
+      }//end resolve
+    })//end user
     .when('/user', {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController as account',

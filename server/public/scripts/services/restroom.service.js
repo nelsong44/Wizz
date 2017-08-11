@@ -8,6 +8,7 @@ app.factory('RestroomService', function($http, $location){
   var restroomObject = {}; //obj being exported to controller
   //storage for user input to push new Restroom to db
   newRestroom = {};
+  restroomToEdit = {};
 
   //CRUD ROUTES --------->
      //request to add a new Restroom to the db
@@ -41,12 +42,23 @@ app.factory('RestroomService', function($http, $location){
        return $http.delete('/restroom/' + id)
        .then(function(response){
         console.log('restroom deleted', response);
-        //not connected to controller here so not updating view model, just logging in console
-        //works from view to controller to service, but how to do the opposite, call it here and trigger change in reverse
         return response;
         //getRestrooms(username);
       });//end then
       }//end deleteRestroom
+
+      // function editRestroom(id) { //DONT CHANGE!!!!!
+      function editRestroom(restroom) {
+        console.log(restroom);
+        restroomToEdit.restroom = restroom;
+        console.log('editRestroom called from RS');
+      //   return $http.put('/restroom/' + id)
+      //   .then(function(response){
+      //    console.log('restroom edited', response);
+      //    return response;
+      //    //getRestrooms(username);
+      //  });//end then
+     }//end editRestroom
 
   //end CRUD ROUTES --------->
 
@@ -82,7 +94,8 @@ app.factory('RestroomService', function($http, $location){
     restroomObject : restroomObject,
     newRestroom : newRestroom,
     addRestroom : addRestroom,
-    getRestrooms : getRestrooms,
-    deleteRestroom : deleteRestroom
+    editRestroom : editRestroom,
+    deleteRestroom : deleteRestroom,
+    getRestrooms : getRestrooms
   };//end return object
   });//end LocationService

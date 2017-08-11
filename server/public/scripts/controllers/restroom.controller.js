@@ -9,12 +9,16 @@ app.controller('RestroomController', function(RestroomService) {
   restroom.restroomObject = RestroomService.restroomObject;
   //get/display all restrooms from db on load of user homepage via RestroomService
   RestroomService.getRestrooms();
-
+  //linking to getRestrooms() in RestroomService
   restroom.getRestrooms = RestroomService.getRestrooms;
   //linking to addRestroom() in RestroomService to call on click of form 'Submit'
   restroom.addRestroom = RestroomService.addRestroom;
   //linking to storage obj for user input to push new Restroom to db
   restroom.newRestroom = RestroomService.newRestroom;
+  //linking to editRestroom() in RestroomService to call on click of form 'Update'
+  restroom.editRestroom = RestroomService.editRestroom;
+
+  restroom.restroomToEdit = restroomToEdit.restroom;
 
   //assigns
   restroom.features = ['Unisex', 'Handicap Accessible', 'Changing Station'];
