@@ -37,17 +37,17 @@ router.post('/', function(req, res) {
 //request to update a Restroom from the db after editing
 router.put('/:id', function(req, res) {
   console.log('edit restroom with id: ',  req.params.id);
-  // Restroom.findByIdAndUpdate(
-  //   { _id: req.params.id },
-  //   function(err, data) {
-  //     if(err) {
-  //       console.log('save error: ', err);
-  //       res.sendStatus(500);
-  //     } else {
-  //       res.sendStatus(200);
-  //     }//end if
-  //   }//end function
-  // );//end findByIdAndUpdate
+  Restroom.findByIdAndUpdate(
+    { _id: req.params.id },
+    function(err, data) {
+      if(err) {
+        console.log('save error: ', err);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(200);
+      }//end if
+    }//end function
+  );//end findByIdAndUpdate
 });//end update
 
 //export the router

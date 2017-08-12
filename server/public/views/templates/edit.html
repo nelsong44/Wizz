@@ -15,19 +15,19 @@
     <div class="row">
       <div class="col-sm-12">
         <label for="">Street</label>
-        <input ng-model="restroom.newRestroom.street" type="text" id="street" name="street" placeholder="Street" class="form-control">
+        <input ng-model="restroom.restroomToEdit.street" type="text" id="street" name="street" placeholder="Street" class="form-control">
       </div>
     </div><!-- end row -->
     <div class="row">
       <div class="col-sm-12">
         <label for="">City</label>
-        <input ng-model="restroom.newRestroom.city" type="text" id="city" name="city" placeholder="City" class="form-control">
+        <input ng-model="restroom.restroomToEdit.city" type="text" id="city" name="city" placeholder="City" class="form-control">
       </div>
     </div><!-- end row -->
     <div class="row">
       <div class="col-sm-4">
         <label for="state">State</label>
-        <select ng-model="restroom.newRestroom.state" id="state" name="state" class="form-control">
+        <select ng-model="restroom.restroomToEdit.state" id="state" name="state" class="form-control">
           <option ng-repeat="state in restroom.states" value="{{state}}">
             {{state}}
           </option>
@@ -35,39 +35,36 @@
       </div>
       <div class="col-sm-4">
         <label for="zipcode">Zipcode</label>
-        <input ng-model="restroom.newRestroom.zipcode" type="number" id="zipcode" name="zipcode" placeholder="Zipcode" class="form-control">
+        <input ng-model="restroom.restroomToEdit.zipcode" type="number" id="zipcode" name="zipcode" placeholder="Zipcode" class="form-control">
       </div>
       <div class="col-sm-4">
         <label for="rating">Restroom Rating:</label>
-        <select ng-model="restroom.newRestroom.rating" id="rating" name="rating" class="form-control">
-          <option value="1">Upvote!</option>
-          <option value="-1">Downvote!</option>
-        </select>
+        <input ng-model="restroom.restroomToEdit.rating" id="rating" name="rating" class="form-control">
       </div>
     </div><!-- end row -->
     <div class="row" class="form-control">
       <div class="col-sm-12">
-        <label class="checkbox"><input ng-click="restroom.newRestroom.unisex = true" type="checkbox" value="Unisex">Unisex</label>
+        <label class="checkbox"><input ng-model="restroom.restroomToEdit.unisex" type="checkbox" value="Unisex">Unisex</label>
       </div>
     </div><!-- end row -->
     <div class="row">
       <div class="col-sm-12">
-        <label class="checkbox"><input ng-click="restroom.newRestroom.accessible = true" type="checkbox" value="Handicap Accessible">Handicap Accessible</label>
+        <label class="checkbox"><input ng-model="restroom.restroomToEdit.accessible" type="checkbox" value="Handicap Accessible">Handicap Accessible</label>
       </div>
     </div><!-- end row -->
     <div class="row">
       <div class="col-sm-12">
-        <label class="checkbox"><input ng-click="restroom.newRestroom.changingTable = true" type="checkbox" value="Changing Table">Changing Table</label>
+        <label class="checkbox"><input ng-model="restroom.restroomToEdit.changingTable" type="checkbox" value="Changing Table">Changing Table</label>
       </div>
     </div><!-- end row -->
     <div class="row">
       <div class="col-sm-12">
         <label for="comment">Comment</label>
-        <textarea ng-model="restroom.newRestroom.comment"id="comment" name="comment" placeholder="Share your experience with others!" style="height:200px" class="form-control"></textarea>
+        <textarea ng-model="restroom.restroomToEdit.comment"id="comment" name="comment" placeholder="Share your experience with others!" style="height:200px" class="form-control"></textarea>
       </div>
     </div><!-- end row -->
     <div class="row">
-    <input type="submit" value="Update" id="submit" ng-click="restroom.editRestroom(restroom.newRestroom)">
+    <input type="submit" value="Update" id="submit" ng-click="restroom.editRestroom(restroom.restroomToEdit)">
     </div><!-- end row -->
   </form>
 </div>

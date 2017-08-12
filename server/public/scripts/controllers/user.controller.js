@@ -44,11 +44,11 @@ app.controller('UserController', function(UserService, RestroomService, Location
   account.editRestroom = function(restroom) {
     console.log('account.editRestroom called');
     var id = account.singleRestroom._id; //DONT CHANGE!!!
-      RestroomService.editRestroom(restroom);
-    //   .then(function(response) {
-    //   console.log('Edit successful');
-    //   account.getRestrooms();
-    // });//end then
+      RestroomService.editRestroom(restroom)
+      .then(function(response) {
+      console.log('Edit successful');
+      account.getRestrooms();
+    });//end then
   };//end editRestroom
 
 });//end UserController
