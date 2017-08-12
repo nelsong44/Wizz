@@ -8,21 +8,24 @@ app.factory('RestroomService', function($http, $location){
   var restroomObject = {}; //obj being exported to controller
   //storage for user input to push new Restroom to db
   newRestroom = {};
+  restroomToEdit = {};
 
   //CRUD ROUTES --------->
-     //request to add a new Restroom to the db
+     //request to add a new Restroom to the db on user form submission
      function addRestroom() {
-       //get coordinates of restroom location based on user-inputted address to store in db
-      //  getLatLong();
-       //adjust restroom rating based on user input to store in db
-       adjustRating();
+
        console.log('addRestroom called');
        console.log(newRestroom);
-       $http.post('/restroom', newRestroom) //Restroom obj
-       .then(function(response) {
-         console.log('Added restroom ', response);
-         getRestrooms(); //update after adding a new Restroom
-       });//end then
+       //verify input fields are filled out, prompt to fill if not
+       verifyInput();
+
+      //  //post new restroom to the db
+      //  $http.post('/restroom', newRestroom) //Restroom obj
+      //  .then(function(response) {
+      //    console.log('Added restroom ', response);
+      //    //update display after adding a new Restroom
+      //    getRestrooms();
+      //  });//end then
      }//end addRestroom
 
      //function to get all restrooms from db
@@ -41,12 +44,26 @@ app.factory('RestroomService', function($http, $location){
        return $http.delete('/restroom/' + id)
        .then(function(response){
         console.log('restroom deleted', response);
-        //not connected to controller here so not updating view model, just logging in console
-        //works from view to controller to service, but how to do the opposite, call it here and trigger change in reverse
         return response;
         //getRestrooms(username);
       });//end then
       }//end deleteRestroom
+
+      // function editRestroom(id) { //DONT CHANGE!!!!!
+      function editRestroom(restroomToEdit) {
+        console.log('editRestroom called from RS');
+        console.log(restroomToEdit);
+        restroomToEdit.restroom = restroom;
+        var id = restroomToEdit.restroom._id;
+          function updateRestroom(id) {
+            return $http.put('/restroom/' + id)
+            .then(function(response){
+             console.log('restroom edited', response);
+             return response;
+             //getRestrooms(username);
+            });//end then
+          }//end updateRestroom
+      }//end editRestroom
 
   //end CRUD ROUTES --------->
 
@@ -77,12 +94,54 @@ app.factory('RestroomService', function($http, $location){
        });//end new geocode
      }//end getLatLong
 
+     //function to verify input fields include data/ check if empty
+     function verifyInput() {
+       var empVenue = document.forms.addRestroom.venue.value;
+       var empStreet = document.forms.addRestroom.street.value;
+       var empCity = document.forms.addRestroom.city.value;
+       var empState = document.forms.addRestroom.state.value;
+       if (empVenue === "" || empStreet === "" || empCity === "" || empCity === "") {
+         alert("Please fill out address information");
+         return false;
+       } else {
+         //get coordinates of restroom location based on user-inputted address to store in db
+         getLatLong();
+         //adjust restroom rating based on user input to store in db
+         adjustRating();
+         //prompt to add another restroom or redirect to homepage after form is submitted
+         addAnother();
+         //post new restroom to the db
+         $http.post('/restroom', newRestroom) //Restroom obj
+         .then(function(response) {
+           console.log('Added restroom ', response);
+           //update display after adding a new Restroom
+           getRestrooms();
+         });//end then
+        }//end if
+         return true;
+     }//end verifyInput
+
+     //prompt to ask user if they'd like to add another restroom or return to homepage
+     function addAnother() {
+      var addAnotherRestroom = confirm("Would you like to add another restroom?");
+      if (addAnotherRestroom === true) {
+        alert("Go for it!");
+        //clear input fields in form for new user input
+        document.getElementById("addRestroom").reset();
+        } else {
+          alert("No Problem! Thanks for your contribution.");
+          //redirect to Home if done adding restrooms
+          $location.path( "/" );
+        }//end if
+      }//end addAnother
+
   //make functions available to controller
   return {
     restroomObject : restroomObject,
     newRestroom : newRestroom,
     addRestroom : addRestroom,
-    getRestrooms : getRestrooms,
-    deleteRestroom : deleteRestroom
+    editRestroom : editRestroom,
+    deleteRestroom : deleteRestroom,
+    getRestrooms : getRestrooms
   };//end return object
   });//end LocationService

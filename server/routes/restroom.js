@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
       res.sendStatus(500);
     } else {
       res.send(data);
-      console.log(data);
+      console.log('All restrooms from db: ', data);
     }
   });//end find
 });//end get
@@ -34,10 +34,10 @@ router.post('/', function(req, res) {
   });//end save
 });//end post
 
-//request to delete a Restroom from the db
-router.delete('/:id', function(req, res) {
-  console.log('deleted restroom with id: ',  req.params.id);
-  Restroom.findByIdAndRemove(
+//request to update a Restroom from the db after editing
+router.put('/:id', function(req, res) {
+  console.log('edit restroom with id: ',  req.params.id);
+  Restroom.findByIdAndUpdate(
     { _id: req.params.id },
     function(err, data) {
       if(err) {
@@ -47,8 +47,8 @@ router.delete('/:id', function(req, res) {
         res.sendStatus(200);
       }//end if
     }//end function
-  );//end findByIdAndRemove
-});//end delete
+  );//end findByIdAndUpdate
+});//end update
 
 //export the router
 module.exports = router;
